@@ -26,6 +26,11 @@ Tested on Linux (Ubuntu).
     make run ARGS="<max_children> <text_file> <config_file>"
     make clean
 
+## Third-Party Materials
+The `config_*.txt` files (and `my_textfile.txt`, if applicable) were provided by the course and are not my work. All source code in `my_IPC.c` is mine.
+
+A config file has one command per line: `<time step> <process label> <action>`, for example `0 C1 S` (spawn C1) or `4 C1 T` (terminate C1), and a final `<time step> EXIT` line.
+
 ## What I Learned
 - **Synchronization between processes needs a clear protocol.** Giving each child its own semaphore, plus a sync semaphore for the parent, made the order of reads and writes on the shared memory predictable.
 - **System V IPC objects outlive the program.** Shared memory and semaphores stay in the system until explicitly removed, so cleanup has to be part of the design.
